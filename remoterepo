@@ -1,0 +1,4 @@
+#!/bin/bash
+
+RepoString="`jq -n --arg name "$1" --arg description "$2" '{"license_template": "mit"} | .name=$name | .description=$description'`"
+curl https://api.github.com/user/repos?access_token=`git config github.token` -d "$RepoString"
