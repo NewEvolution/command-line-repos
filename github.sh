@@ -7,7 +7,10 @@ github () {
 		cd $1
 		git init
 		remoterepo "$@"
-		git remote add origin git@github.com:NewEvolution/$1
+    # SSH Github connection
+		git remote add origin git@github.com:YOUR_GITHUB_USERNAME/$1
+    # HTTPS Github connection
+		#git remote add origin https://github.com/YOUR_GITHUB_USERNAME/$1
 		git update-from origin master
 		echo "# $1" > README.md
 		git add .
